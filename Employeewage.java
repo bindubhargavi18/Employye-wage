@@ -3,25 +3,22 @@ package wages;
 public class Employeewage {
 	public static void main(String[] args) {
 		System.out.println("Welcome to employee wage computation program");
-		int parttime=2,fulltime=1,wagehr=20,dayhrs=8,dailywage,parthr=8,workingdays=20,monthwage;
+		int parttime=2,fulltime=1,wagehr=20,workingdays=20,maxhrs=100,dayhrs;
+		int totalhr=0,totaldays=0;
 		double emp=(Math.floor(Math.random()*10)%3);
-		if (emp==fulltime)
+		while(totalhr<maxhrs && totaldays<workingdays)
 		{
-			dailywage=dayhrs*wagehr;
-			monthwage=workingdays*dailywage;
-			System.out.println("employee wages per month:" +monthwage);
-			
+			totaldays++;
+			if (emp==fulltime)
+				dayhrs=8;
+			else if(emp==parttime)
+				dayhrs=4;
+			else
+				dayhrs=0;
+			totalhr=totalhr+dayhrs;
 		}
-		else if(emp==parttime)
-		{
-			dailywage=parthr*wagehr;
-			monthwage=workingdays*dailywage;
-			System.out.println("part time employee wage per month:" +monthwage);
-		}
-		else
-		{
-			System.out.println("employee is absent and salary for will be 0");
-		}
+		int wages = totalhr*wagehr;
+		System.out.println("wage of a employee:" +wages);
 	}
 
 }
