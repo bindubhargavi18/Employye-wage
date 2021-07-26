@@ -3,24 +3,20 @@ package wages;
 public class Employeewage {
 	public static void main(String[] args) {
 		System.out.println("Welcome to employee wage computation program");
-		int fulltime=1,wagehr=20,dayhrs=8,dailywage,parttime=2,parthr=8;
-		double emp=Math.floor(Math.random()*10)%3;
-		if (emp==fulltime)
+		int wagehr=20,dayhrs=8,dailywage,parthr=8;
+		int emp=(int) (Math.floor(Math.random()*10)%3);
+		switch(emp)
 		{
-			System.out.println("employee is present");
+		case 1:
 			dailywage=wagehr*dayhrs;
-			System.out.println("dailywage of employee is" +dailywage);
-		}
-		else if (emp==parttime)
-		{
-			System.out.println("employee is working as parttime");
+			System.out.println("employee daily wage:" +dailywage);
+			break;
+		case 2:
 			dailywage=wagehr*parthr;
-			System.out.println("part time wage of employee is " +dailywage);
-		}
-		else
-		{
-			System.out.println("employee is absent");
-			System.out.println("daily wage of emplyee is 0");
+			System.out.println("part time empoyee wage:" +dailywage);
+			break;
+		default:
+			System.out.println("employee is absent and salary will be 0");
 		}
 	}
 
